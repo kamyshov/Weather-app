@@ -1,0 +1,49 @@
+<div class="homepage" style="padding: 5px 25px;">
+    <!--<div ng-repeat="row in vm.tableData track by $index">-->
+    <!--<span ng-repeat="(id, value) in row track by $index"> {{value}} </span>-->
+    <!--</div>-->
+    <div style="font-size: 12px;padding:5px;margin:0; line-height:18px; border: 1px solid #c4c4c4;background: white;">
+    </div>
+    <md-card style="margin:0px">
+        <md-input-container style="margin:15px;">
+            <label>Filter by search</label>
+            <input type="text"
+                   ng-model="vm.filterName"
+            ng-model-options="{debounde: 500}">
+        </md-input-container>
+
+        <div>
+            {{(vm.filteredItems = ( vm.tableData.year | filter: vm.filterName))}}
+        </div>
+    </md-card>
+    <mdt-table ng-if="vm.tableData.length"
+               paginated-rows="{isEnabled: true, rowsPerPageValues: [12]}"
+               mdt-row-paginator="vm.paginate(page, pageSize)"
+               mdt-trigger-request="vm.getLoadResultsCallback(loadPageCallback)"
+               mdt-row="vm.rowOptions">
+        <mdt-header-row>
+            <mdt-column align-rule="left"
+                        column-sort="true">Year
+            </mdt-column>
+            <mdt-column align-rule="right"
+                        column-sort="true">Month
+            </mdt-column>
+            <mdt-column align-rule="right"
+                        column-sort="true">tmax(degC)
+            </mdt-column>
+            <mdt-column align-rule="right"
+                        column-sort="true">tmin(tmin)
+            </mdt-column>
+            <mdt-column align-rule="right"
+                        column-sort="true">af(days)
+            </mdt-column>
+            <mdt-column align-rule="right"
+                        column-sort="true">rain(mm)
+            </mdt-column>
+            <mdt-column align-rule="right"
+                        column-sort="true">sun(hours)
+            </mdt-column>
+        </mdt-header-row>
+    </mdt-table>
+</div>
+</div>

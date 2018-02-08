@@ -1,0 +1,17 @@
+.homepage {
+  .title {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 15px;
+  }
+  .temp, .wind {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background: #fefefe;
+  }
+  .md-virtual-repeat-container {
+    height: 296px;
+  }
+}
+
